@@ -15,7 +15,7 @@ public class Demo02 {
         thread1.start();
         thread2.start();
         TimeUnit.SECONDS.sleep(1);
-        System.out.println(thread2.getState());
+        System.out.println("thread2====>" + thread2.getState());
     }
 }
 
@@ -32,7 +32,6 @@ class MyThread implements Runnable {
         synchronized (lock) {
             try {
                 TimeUnit.SECONDS.sleep(3);
-                System.out.println(Thread.currentThread().getName());
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

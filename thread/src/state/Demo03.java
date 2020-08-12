@@ -26,13 +26,13 @@ public class Demo03 {
     //obj.notify()唤醒在此对象监视器上等待的单个线程，选择是任意性的。notifyAll()唤醒在此对象监视器上等待的所有线程。
     //LockSupport.park()/LockSupport.parkNanos(long nanos),LockSupport.parkUntil(long deadlines), 当前线程进入WAITING/TIMED_WAITING状态。对比wait方法,不需要获得锁就可以让线程进入WAITING/TIMED_WAITING状态，需要通过LockSupport.unpark(Thread thread)唤醒。
     public static void main(String[] args) throws InterruptedException {
-//        Thread thread = new MyThread1();
-//        thread.start();
-//        TimeUnit.MILLISECONDS.sleep(100);
-//        System.out.println(thread.getState());
-//        LockSupport.unpark(thread);
-//        TimeUnit.MILLISECONDS.sleep(100);
-//        System.out.println(thread.getState());
+        Thread thread = new MyThread1();
+        thread.start();
+        TimeUnit.MILLISECONDS.sleep(100);
+        System.out.println(thread.getState());
+        LockSupport.unpark(thread);
+        TimeUnit.MILLISECONDS.sleep(100);
+        System.out.println(thread.getState());
 //        String lock = "lock";
 //        Thread thread = new Thread(new MyThread2(lock));
 //        thread.start();
@@ -44,12 +44,12 @@ public class Demo03 {
 //        Thread.sleep(100);
 //        System.out.println(thread.getState());
 
-        MyThread3 thread = new MyThread3();
-        thread.start();
-        MyThread4 thread4 = new MyThread4(thread);
-        thread4.start();
-        Thread.sleep(100);
-        System.out.println(thread4.getState());
+//        MyThread3 thread = new MyThread3();
+//        thread.start();
+//        MyThread4 thread4 = new MyThread4(thread);
+//        thread4.start();
+//        Thread.sleep(100);
+//        System.out.println(thread4.getState());
     }
 }
 
